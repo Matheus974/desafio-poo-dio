@@ -1,28 +1,14 @@
 package Model;
 
-public class Curso {
-
-    private String titulo;
-    private String descricao;
+public class Curso extends Conteudo {
     private double cargaHoraria;
 
+    public Curso(String titulo, String descricao, double cargaHoraria) {
+        setDescricao(descricao);
+        setTitulo(titulo);
+        this.cargaHoraria = cargaHoraria;
 
-    public String getTitulo() {
-        return titulo;
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public double getCargaHoraria() {
         return cargaHoraria;
     }
@@ -30,4 +16,11 @@ public class Curso {
     public void setCargaHoraria(double cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
+
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO + 30d;
+    }
+
+
 }

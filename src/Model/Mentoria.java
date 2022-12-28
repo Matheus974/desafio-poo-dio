@@ -2,29 +2,17 @@ package Model;
 
 import java.time.LocalDate;
 
-public class Mentoria {
-
-    private String titulo;
-    private String descricao;
+public class Mentoria extends Conteudo{
     private LocalDate data;
 
-    public String getTitulo() {
-        return this.titulo;
-    }
+    public Mentoria(Bootcamp bootcamp) {
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+        this.data = bootcamp.getDataInicio().plusDays(7);
 
-    public String getDescricao() {
+    };
 
-        return this.descricao;
-    }
 
-    public void setDescricao(String descricao) {
 
-        this.descricao = descricao;
-    }
 
     public LocalDate getData() {
 
@@ -36,7 +24,9 @@ public class Mentoria {
         this.data = data;
     }
 
-    
 
-
+    @Override
+    public double calcularXp() {
+        return XP_PADRAO + 20d;
+    }
 }
